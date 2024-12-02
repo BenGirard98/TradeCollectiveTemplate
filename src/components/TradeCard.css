@@ -1,0 +1,49 @@
+.trade-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trade-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.trade-card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.trade-card-content {
+  padding: 16px;
+}
+
+.trade-card-title {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.trade-card-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.trade-card-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.trade-card-button:hover {
+  background-color: #0056b3;
+}

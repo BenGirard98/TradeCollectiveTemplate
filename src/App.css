@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.trade-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+}
