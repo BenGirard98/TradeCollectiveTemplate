@@ -5,11 +5,13 @@ import plumbingImg from "../assets/images/Plumbing.jpg";
 import solarImg from "../assets/images/Solar.jpg";
 import weldingImg from "../assets/images/Welding.jpg";
 
-export const trades = [
+import { Trade } from "../types/Trade";
+
+export const trades: Trade[] = [
   {
     image: aviationImg,
     title: "Aviation",
-    description: "Sample text describing profession.",
+    description: "Sample Text describing profession.",
     onClick: () => alert("Explore Aviation!"),
   },
   {

@@ -1,19 +1,8 @@
 import React from "react";
 import "./TradeCard.css";
+import { Trade } from "../types/Trade";
 
-interface TradeCardProps {
-  image: string; // URL or import path for the image
-  title: string; // Title of the trade
-  description: string; // Short description
-  onClick: () => void; // Function to handle "Learn More" click
-}
-
-const TradeCard: React.FC<TradeCardProps> = ({
-  image,
-  title,
-  description,
-  onClick,
-}) => {
+const TradeCard: React.FC<Trade> = ({ image, title, description, onClick }) => {
   return (
     <div className="trade-card">
       <img src={image} alt={title} className="trade-card-image" />

@@ -1,49 +1,53 @@
 .trade-card {
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #dddddd9f;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 350px; /* Set a fixed height for the card */
+  width: 250px; /* Set a fixed width for all cards */
+  overflow: hidden; /* Ensure content doesn't spill outside the card */
 }
 
 .trade-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid white;
 }
 
 .trade-card-image {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: 180px; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensures image scales without distorting */
+  border-radius: 8px 8px 0 0; /* Optional: round the top corners */
 }
 
 .trade-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: 16px;
 }
 
 .trade-card-title {
-  font-size: 18px;
-  margin: 8px 0;
+  margin: 0px;
+  font-size: 1.25rem;
 }
 
 .trade-card-description {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 16px;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .trade-card-button {
-  background-color: #007bff;
-  color: white;
+  margin-top: auto;
+  background-color: #ce4218;
+  color: #fff;
   border: none;
-  padding: 8px 16px;
   border-radius: 4px;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .trade-card-button:hover {
-  background-color: #0056b3;
+  background-color: #973112;
 }
