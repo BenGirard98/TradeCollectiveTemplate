@@ -11,37 +11,49 @@ export const trades: Trade[] = [
   {
     image: aviationImg,
     title: "Aviation",
-    description: "Sample Text describing profession.",
+    cardDescription: "Sample Text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Aviation!"),
   },
   {
     image: constructionImg,
     title: "Construction",
-    description: "Sample text describing profession.",
+    cardDescription: "Sample text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Construction!"),
   },
   {
     image: firefightingImg,
     title: "Fire Fighter",
-    description: "Sample text describing profession.",
+    cardDescription: "Sample text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Fire Fighting!"),
   },
   {
     image: plumbingImg,
     title: "Plumbing",
-    description: "Sample text describing profession.",
+    cardDescription: "Sample text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Plumbing!"),
   },
   {
     image: solarImg,
     title: "Solar",
-    description: "Sample text describing profession.",
+    cardDescription: "Sample text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Solar!"),
   },
   {
     image: weldingImg,
     title: "Welding",
-    description: "Sample text describing profession.",
+    cardDescription: "Sample text describing profession.",
+    modalDescription:
+      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Welding!"),
   },
 ];
