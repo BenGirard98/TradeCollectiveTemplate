@@ -1,37 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import TradeCard from "./components/TradeCard";
-import Modal from "./components/Modal";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import IntroPage from "./pages/IntroPage";
+import MainPage from "./pages/MainPage"; // Your main content component
 
-import { trades } from "./data/trades";
-
-function App() {
-  const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
-
-  const handleCardClick = (trade: Trade) => {
-    setSelectedTrade(trade);
-  };
-
-  const closeModal = () => {
-    setSelectedTrade(null);
-  };
-
+const App: React.FC = () => {
   return (
-    <div>
-      <div className="trade-list">
-        {trades.map((trade) => (
-          <TradeCard
-            key={trade.title}
-            {...trade}
-            onClick={() => handleCardClick(trade)}
-          />
-        ))}
-      </div>
-      {selectedTrade && <Modal trade={selectedTrade} onClose={closeModal} />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<IntroPage />} />
+        <Route path="/main" element={<MainPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
