@@ -25,7 +25,7 @@ const MainPage: React.FC = () => {
 
   const handleLaunchInfo = (trade: Trade) => {
     console.log("Launching info for:", trade.title);
-    navigate("/tradeInfo");
+    navigate(`/tradeInfo/${trade.title}`);
   };
 
   return (
