@@ -47,3 +47,18 @@
 .close-button:hover {
   background: rgba(0, 0, 0, 0.75);
 }
+
+.info-button {
+  margin-top: 20px;
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  align-self: center;
+  background-color: #ce4218;
+}
