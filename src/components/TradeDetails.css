@@ -1,0 +1,44 @@
+.trade-details {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: grey;
+}
+
+.trade-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.trade-details section {
+  margin-bottom: 20px;
+}
+
+.trade-details h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.trade-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.trade-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.trade-details th,
+.trade-details td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.trade-details th {
+  background-color: #f2f2f2;
+}
