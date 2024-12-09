@@ -17,7 +17,29 @@ const Modal: React.FC<ModalProps> = ({ trade, onClose, onLaunchInfo }) => {
         </button>
         <h2>{trade.title}</h2>
         <img src={trade.image} alt={trade.title} />
-        <p>{trade.modalDescription}</p>
+        <div className="modal-info">
+          <div className="modal-section">
+            <div>
+              <h3>Starting Salary</h3>
+              <p>{trade.data.startingSalary}</p>
+            </div>
+            <div className="modal-divider"></div>
+            <div>
+              <h3>Hiring Needs</h3>
+              <p>{trade.data.currentHireNeeds}</p>
+            </div>
+          </div>
+          <div className="modal-section">
+            <div>
+              <h3>Requirements</h3>
+              <ul>
+                {trade.data.requirements.slice(0, 3).map((req, index) => (
+                  <li key={index}>{req}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
         <button className="info-button" onClick={() => onLaunchInfo(trade)}>
           Learn More About This Trade
         </button>

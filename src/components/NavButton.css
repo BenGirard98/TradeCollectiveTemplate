@@ -1,0 +1,21 @@
+.nav-button {
+  background-color: #ce4218;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 5px;
+}
+
+.nav-button:hover {
+  background-color: #a63714;
+  transform: scale(1.05);
+}
+
+.nav-button:active {
+  background-color: #7e2c10;
+  transform: scale(0.95);
+}

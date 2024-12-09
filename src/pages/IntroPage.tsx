@@ -1,15 +1,9 @@
 import React from "react";
 import "./IntroPage.css";
-import { useNavigate } from "react-router-dom";
+import NavButton from "../components/NavButton";
 import tcLogo from "../assets/TC_POS_COLOR_01.png";
 
 const IntroPage: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handleStartClick = () => {
-    navigate("/main"); // Navigate to the main content route
-  };
-
   return (
     <div className="intro-page">
       <div className="intro-content">
@@ -21,9 +15,7 @@ const IntroPage: React.FC = () => {
           connect you with mentors who can guide you.
         </p>
         <p>Hit get started to see the current trades offered and learn more.</p>
-        <button className="start-button" onClick={handleStartClick}>
-          Get Started
-        </button>
+        <NavButton to="/main" label="Get Started" />
       </div>
     </div>
   );

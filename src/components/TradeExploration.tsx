@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { trades } from "../data/trades";
 import TradeDetails from "./TradeDetails";
+import NavButton from "./NavButton";
 
 import "./TradeExploration.css";
 
@@ -10,10 +11,6 @@ const TradeExploration: React.FC = () => {
   const navigate = useNavigate();
   const trade = trades.find((trade) => trade.title === tradeName);
 
-  const handleBackClick = () => {
-    navigate("/main");
-  };
-
   if (!trade) {
     return <div>Trade not found</div>;
   }
@@ -21,9 +18,7 @@ const TradeExploration: React.FC = () => {
   if (trade.data == null) {
     return (
       <div className="trade-exploration">
-        <button onClick={handleBackClick} className="back-button">
-          Back to Trades
-        </button>
+        <NavButton to="/main" label="Back to Main" />
         <img
           src={trade.image}
           alt={trade.title}
