@@ -312,7 +312,7 @@ const plumbingTradeData = {
 const hvacTradeData = {
   title: "HVAC",
   startingSalary: "$30,000 - $40,000",
-  currentHireNeeds: "XX",
+  currentHireNeeds: 10,
   collectiveLeaders: [
     "Able Distributors (Michael + Dan Bleier)",
     "John J. Cahill Plumbing, Heating & Air Conditioning",
@@ -338,10 +338,10 @@ const hvacTradeData = {
     "Senior Level Efficiency Analyst Certification",
     "EPA 608 Universal Certification (Core, Type 1, Type 2, Type 3)",
   ],
-  programs: [
+  careerPathways: [
     {
-      name: "American Vintage (Pipefitters Local Union 597)",
-      description: "Apprenticeships available through unions like Local 597.",
+      name: "Evanston Explore Program",
+      link: "https://example.com/evanston-program",
     },
     {
       name: "Oakton College: Air Conditioning, Heating, and Refrigeration Technology",
@@ -372,6 +372,21 @@ const hvacTradeData = {
     {
       name: "HVAC Technical Institute",
       description: "33-48 weeks of HVAC training, day or evening classes.",
+    },
+  ],
+  programs: [
+    {
+      name: "American Vintage (Pipefitters Local Union 597)",
+      description: "Apprenticeships available through unions like Local 597.",
+    },
+    {
+      name: "Oakton College: Air Conditioning, Heating, and Refrigeration Technology",
+      link: "https://catalog.oakton.edu/career-programs-pathways/air-conditioning-heating-refrigeration-technology",
+    },
+    {
+      name: "Sheet Metal Workers' Local 73 Apprenticeship Program",
+      description:
+        "Hands-on training with 1,360 classroom hours and paid on-the-job training.",
     },
   ],
   localBusinesses: [
@@ -441,6 +456,7 @@ const hvacTradeData = {
   ],
   totalHiresRequired: "XX",
 };
+
 const fireTradeData = {
   title: "Fire",
   startingSalary: "$57,120 - $75,000",
@@ -571,7 +587,8 @@ export const trades: Trade[] = [
   {
     image: aviationImg,
     title: "Aviation",
-    cardDescription: "Sample Text describing profession.",
+    cardDescription:
+      "Operate aircraft and ensure safe, efficient air travel operations.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Aviation!"),
@@ -580,7 +597,8 @@ export const trades: Trade[] = [
   {
     image: HVACImg,
     title: "HVAC",
-    cardDescription: "Sample text describing profession.",
+    cardDescription:
+      "Install and maintain heating, cooling, and ventilation systems.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore HVAC!"),
@@ -589,7 +607,8 @@ export const trades: Trade[] = [
   {
     image: firefightingImg,
     title: "Fire Fighter",
-    cardDescription: "Sample text describing profession.",
+    cardDescription:
+      "Respond to emergencies, extinguish fires, and protect lives and property.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Fire Fighting!"),
@@ -598,7 +617,8 @@ export const trades: Trade[] = [
   {
     image: plumbingImg,
     title: "Plumbing",
-    cardDescription: "Sample text describing profession.",
+    cardDescription:
+      "Install, repair, and maintain piping systems for water and gas",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Plumbing!"),
@@ -607,7 +627,8 @@ export const trades: Trade[] = [
   {
     image: automotiveImg,
     title: "Automotive",
-    cardDescription: "Sample text describing profession.",
+    cardDescription:
+      "Diagnose, repair, and maintain vehicles for optimal performance.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Automotive!"),
@@ -616,7 +637,8 @@ export const trades: Trade[] = [
   {
     image: policeImg,
     title: "Police",
-    cardDescription: "Sample text describing profession.",
+    cardDescription:
+      "Protect and serve communities by enforcing laws and ensuring safety.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Police!"),

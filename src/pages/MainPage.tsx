@@ -29,7 +29,7 @@ const MainPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="content">
       <div className="trade-list">
         {trades.map((trade) => (
           <TradeCard

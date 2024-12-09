@@ -16,9 +16,8 @@
 
 .trade-card-image {
   width: 100%;
-  height: 180px; /* Set a fixed height for the image */
-  object-fit: cover; /* Ensures image scales without distorting */
-  border-radius: 8px 8px 0 0; /* Optional: round the top corners */
+  height: 160px;
+  object-fit: cover;
 }
 
 .trade-card-content {
@@ -34,7 +33,7 @@
 }
 
 .trade-card-description {
-  margin: 0;
+  margin-top: 0;
   flex-grow: 1;
 }
 
