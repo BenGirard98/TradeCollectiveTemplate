@@ -21,12 +21,16 @@ const Modal: React.FC<ModalProps> = ({ trade, onClose, onLaunchInfo }) => {
           <div className="modal-section">
             <div>
               <h3>Starting Salary</h3>
-              <p>{trade.data.startingSalary}</p>
+              <div className="modal-sub-section">
+                <p>{trade.data.startingSalary}</p>
+              </div>
             </div>
             <div className="modal-divider"></div>
             <div>
               <h3>Hiring Needs</h3>
-              <p>{trade.data.currentHireNeeds}</p>
+              <div className="modal-sub-section">
+                <p>{trade.data.currentHireNeeds}</p>
+              </div>
             </div>
           </div>
           <div className="modal-section">
