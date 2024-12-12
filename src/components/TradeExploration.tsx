@@ -25,8 +25,6 @@ const TradeExploration: React.FC = () => {
           className="trade-exploration-image"
         />
         <h1>{trade.title}</h1>
-        <p>{trade.description}</p>
-        {/* Add more details, videos, links, etc., as needed */}
       </div>
     );
   }
