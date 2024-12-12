@@ -37,9 +37,11 @@ const Modal: React.FC<ModalProps> = ({ trade, onClose, onLaunchInfo }) => {
             <div>
               <h3>Requirements</h3>
               <ul>
-                {trade.data.requirements.slice(0, 3).map((req, index) => (
-                  <li key={index}>{req}</li>
-                ))}
+                {trade.data.requirements
+                  .slice(0, 3)
+                  .map((req: string, index: number) => (
+                    <li key={index}>{req}</li>
+                  ))}
               </ul>
             </div>
           </div>
