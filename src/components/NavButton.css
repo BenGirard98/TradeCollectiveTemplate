@@ -8,6 +8,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin: 5px;
+  max-width: fit-content;
 }
 
 .nav-button:hover {
