@@ -1,13 +1,10 @@
-import { useState } from "react";
 import "../App.css";
-import TradeCard from "../components/TradeCard";
-import Modal from "../components/Modal";
-import TradeExploration from "../components/TradeExploration.tsx";
-
-import { trades } from "../data/trades";
+import VideoPlayer from "../components/VideoPlayer.tsx";
+import HVACVideo1 from "../assets/videos/WhatIsHVAC.mp4";
+import HVACImg from "../assets/images/HVAC.jpg";
 
 const TradeInfoPage: React.FC = () => {
-  return <TradeExploration />;
+  return <VideoPlayer src={HVACVideo1} poster={HVACImg} />;
 };
 
 export default TradeInfoPage;
