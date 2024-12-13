@@ -2,6 +2,7 @@ import "../App.css";
 import VideoPlayer from "../components/VideoPlayer.tsx";
 import HVACVideo1 from "../assets/videos/WhatIsHVAC.mp4";
 import HVACImg from "../assets/images/HVAC.jpg";
+import DITLImg from "../assets/images/Construction.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar.tsx";
@@ -44,9 +45,7 @@ const TradeInfoPage: React.FC = () => {
         return (
           <div>
             <h2>A Day in the Life</h2>
-            <p>
-              Explore what a typical workday looks like for an HVAC technician.
-            </p>
+            <VideoPlayer src={HVACVideo1} poster={DITLImg} />
           </div>
         );
       case "Pathways":
