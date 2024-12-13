@@ -5,6 +5,7 @@ import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
 
 import { trades } from "../data/trades";
+import { Trade } from "../types/Trade";
 
 const MainPage: React.FC = () => {
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
@@ -18,10 +19,6 @@ const MainPage: React.FC = () => {
   };
 
   const navigate = useNavigate();
-
-  const handleStartClick = () => {
-    navigate("/main");
-  };
 
   const handleLaunchInfo = (trade: Trade) => {
     console.log("Launching info for:", trade.title);
