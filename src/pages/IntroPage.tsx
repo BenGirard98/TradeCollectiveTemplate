@@ -1,7 +1,7 @@
 import React from "react";
 import "./IntroPage.css";
 import NavButton from "../components/NavButton";
-import tcLogo from "../assets/TC_POS_COLOR_01.png";
+import tcLogo from "../assets/pngs/TC_POS_COLOR_01.png";
 
 const IntroPage: React.FC = () => {
   return (
