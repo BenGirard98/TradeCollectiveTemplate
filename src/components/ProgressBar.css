@@ -1,0 +1,35 @@
+/* ProgressBar.css */
+.progress-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(145, 145, 145);
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.progress-bar-section {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+  background-color: darkgray;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.progress-bar-section.completed {
+  background-color: #ce4218;
+}
+
+/* Arrow image styling */
+.progress-bar-arrow {
+  width: 20px;
+  height: auto;
+  margin: 0 5px;
+  align-self: center;
+}
