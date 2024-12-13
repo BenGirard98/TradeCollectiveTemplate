@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../App.css";
 import TradeCard from "../components/TradeCard";
-import Modal from "../components/Modal";
+import TradeInfoModal from "../components/TradeInfoModal";
 import { useNavigate } from "react-router-dom";
 
 import { trades } from "../data/trades";
@@ -37,7 +37,7 @@ const MainPage: React.FC = () => {
         ))}
       </div>
       {selectedTrade && (
-        <Modal
+        <TradeInfoModal
           trade={selectedTrade}
           onClose={closeModal}
           onLaunchInfo={handleLaunchInfo}

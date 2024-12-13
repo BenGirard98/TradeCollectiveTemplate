@@ -1,6 +1,6 @@
 import React from "react";
 import { Trade } from "../types/Trade";
-import "./Modal.css";
+import "./TradeInfoModal.css";
 
 interface ModalProps {
   trade: Trade;
