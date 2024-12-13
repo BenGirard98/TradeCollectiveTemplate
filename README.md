@@ -1,50 +1,41 @@
-# React + TypeScript + Vite
+# Trade Collective: Interactive Trade Information Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an interactive portal designed to help high school students explore trade career paths as part of the **Trade Collective** initiative. The portal introduces students to various trades through engaging videos, progress tracking, and interactive content.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Trade Exploration**: Learn about different trades through a structured, section-based interface.
+- **Progress Tracking**: Users can view their progress as they navigate through sections like *Introduction*, *Pathways*, and *Local Employers*.
+- **Interactive Content**: Dynamic content rendered based on the selected section.
+- **Responsive Design**: Designed for accessibility and usability on both desktop and mobile devices.
+- **React Router Navigation**: Easy navigation between the main page and detailed trade information pages.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend**: React, TypeScript
+- **Styling**: CSS (custom styles with responsive design)
+- **Video Player**: Custom React component for playing trade-related videos.
+- **Routing**: React Router for navigation between pages.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Node.js (v16 or later)
+- npm or yarn
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BenGirard98/TradeCollectiveTemplate.git
+   cd TradeCollectiveTemplate
+2. Install dependencies:
+   ```bash
+   npm install
+3. Start the development server:
+   ```bash
+   npm run dev
+4. Open your browser and navigate to the localhost
+
+
