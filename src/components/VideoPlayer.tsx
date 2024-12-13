@@ -1,5 +1,4 @@
 import React from "react";
-import NavButton from "./NavButton";
 import "./VideoPlayer.css"; // Import the new CSS file for styling
 
 interface VideoPlayerProps {
@@ -26,7 +25,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         <source src={src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <NavButton to="/" label="Return to Main Page" className="return-button" />
     </div>
   );
 };

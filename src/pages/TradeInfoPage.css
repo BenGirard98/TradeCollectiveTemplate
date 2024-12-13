@@ -1,0 +1,30 @@
+/* TradeInfoPage.css */
+
+.trade-info-content {
+  background-color: grey;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px; /* Comfortable padding for the button */
+  background-color: #ce4218; /* Match your theme’s orange color */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for a smooth look */
+  font-size: 1rem; /* Slightly larger font size for better visibility */
+  cursor: pointer; /* Pointer cursor to indicate button is clickable */
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+button:hover {
+  background-color: #a63212; /* Darker shade of orange on hover */
+}
+
+button:active {
+  background-color: #8a2a0f; /* Even darker shade when button is pressed */
+}
