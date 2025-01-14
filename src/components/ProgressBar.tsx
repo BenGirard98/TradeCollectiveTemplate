@@ -1,10 +1,11 @@
 import React from "react";
 import "./ProgressBar.css";
 import arrowPNG from "../assets/pngs/Arrow.png";
+import { Section } from "../pages/TradeInfoPage";
 
 interface ProgressBarProps {
-  sections: string[]; // Array of section names
-  completedSections: string[]; // Array of completed section names
+  sections: Section[]; // Array of sections
+  completedSections: Section[]; // Array of completed sections
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -22,7 +23,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 isCompleted ? "completed" : ""
               }`}
             >
-              {section}
+              {section.name}
             </div>
             {index < sections.length - 1 && (
               <img src={arrowPNG} alt="arrow" className="progress-bar-arrow" />
