@@ -1,0 +1,7 @@
+.text-display-content {
+  background-color: rgb(145, 145, 145);
+  flex-grow: 1;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 8px;
+}

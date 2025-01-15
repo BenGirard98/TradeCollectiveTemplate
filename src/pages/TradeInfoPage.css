@@ -1,7 +1,7 @@
 /* TradeInfoPage.css */
 
 .trade-info-content {
-  position: relative; /* Set as positioning reference */
+  position: relative;
   background-color: grey;
   padding: 20px;
   border-radius: 8px;

@@ -2,7 +2,10 @@ import VideoPlayer from "../components/VideoPlayer";
 import { Section } from "../pages/TradeInfoPage";
 import HVACVideo1 from "../assets/videos/WhatIsHVAC.mp4";
 import HVACImg from "../assets/images/HVAC.jpg";
+import HVACCarrerPathways from "../assets/images/HVACCareerPathways.jpg";
 import DITLImg from "../assets/images/Construction.jpg";
+import InfoSectionTextDisplay from "../components/InfoSectionTextDisplay";
+import InfoSectionImage from "../components/InfoSectionImage";
 
 export const hvacSections: Section[] = [
   {
@@ -11,37 +14,36 @@ export const hvacSections: Section[] = [
       <VideoPlayer
         src={HVACVideo1}
         poster={HVACImg}
-        text="Welcome to HVAC Trade Information"
+        title="Welcome to HVAC Trade Information"
       />
     ),
   },
   {
     name: "Typical Day",
     content: (
-      <VideoPlayer src={HVACVideo1} poster={DITLImg} text="A Day in the Life" />
+      <VideoPlayer
+        src={HVACVideo1}
+        poster={DITLImg}
+        title="A Day in the Life"
+      />
     ),
   },
   {
     name: "Pathways",
     content: (
-      <div>
-        <h2>Training and Certification Pathways</h2>
-        <p>
-          Learn about the educational and certification pathways available to
-          start your career.
-        </p>
-      </div>
+      <InfoSectionTextDisplay
+        title="Training and Certification Pathway"
+        content="This is some place holder text. The goal is just to see how a paragraph of info might look in this component. I'm expecting that we might want some images added or something else as well but I'm kind of hoping that we'll be able to create some nice images of this info and just display those instead of me tring to format information nicely. I'll try to find an example of what I'm thinking for the next slide :)"
+      ></InfoSectionTextDisplay>
     ),
   },
   {
     name: "Salary and Career Progression",
     content: (
-      <div>
-        <h2>Salary and Career Progression</h2>
-        <p>
-          Discover potential salaries and career growth opportunities in HVAC.
-        </p>
-      </div>
+      <InfoSectionImage
+        title="Career Progression"
+        imgSrc={HVACCarrerPathways}
+      ></InfoSectionImage>
     ),
   },
   {
