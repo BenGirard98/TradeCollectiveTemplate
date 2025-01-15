@@ -1,0 +1,49 @@
+.trade-icons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: #f7f4f475;
+  border: 1px solid #ccc;
+  gap: 10px; /* Adds space between icons */
+}
+
+.trade-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  cursor: grab;
+  user-select: none;
+}
+
+.trade-icon-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: grey;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.trade-icon.removed {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.trade-icon.locked {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.trade-icon.unlocked {
+  background-color: orange;
+}
+
+.trade-icon.dragging {
+  opacity: 0.5;
+}
