@@ -3,6 +3,7 @@ import "./VideoPlayer.css"; // Import the new CSS file for styling
 
 interface VideoPlayerProps {
   src: string;
+  text?: string;
   poster?: string;
   width?: string;
   height?: string;
@@ -10,12 +11,14 @@ interface VideoPlayerProps {
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
   src,
+  text,
   poster,
   width = "640px",
   height = "360px",
 }) => {
   return (
     <div className="video-player-container">
+      {text ? <h2>{text}</h2> : <></>}
       <video
         controls
         poster={poster}

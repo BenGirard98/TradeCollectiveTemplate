@@ -8,19 +8,17 @@ export const hvacSections: Section[] = [
   {
     name: "Introduction",
     content: (
-      <div>
-        <h2>Welcome to HVAC Trade Information</h2>
-        <VideoPlayer src={HVACVideo1} poster={HVACImg} />
-      </div>
+      <VideoPlayer
+        src={HVACVideo1}
+        poster={HVACImg}
+        text="Welcome to HVAC Trade Information"
+      />
     ),
   },
   {
     name: "Typical Day",
     content: (
-      <div>
-        <h2>A Day in the Life</h2>
-        <VideoPlayer src={HVACVideo1} poster={DITLImg} />
-      </div>
+      <VideoPlayer src={HVACVideo1} poster={DITLImg} text="A Day in the Life" />
     ),
   },
   {
