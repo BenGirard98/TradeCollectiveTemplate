@@ -6,50 +6,48 @@ import TradeIcons from "../components/TradeIcons";
 import TradeIconRankings from "../components/TradeIconRankings";
 
 const IntroPage: React.FC = () => {
-  const [icons, setIcons] = useState([
-    { letter: "A", isUnlocked: true, isRemoved: false, isPlaceholder: false },
-    { letter: "B", isUnlocked: true, isRemoved: false, isPlaceholder: false },
-    { letter: "C", isUnlocked: true, isRemoved: false, isPlaceholder: false },
-    { letter: "D", isUnlocked: true, isRemoved: false, isPlaceholder: false },
-  ]);
+  const initialIcons = ["A", "B", "C", "D"];
+  const [icons, setIcons] = useState<(string | null)[]>(initialIcons); // TradeIcons slots
+  const [rankedIcons, setRankedIcons] = useState<(string | null)[]>(
+    Array(initialIcons.length).fill(null)
+  ); // TradeIconRankings slots
 
-  const [rankedIcons, setRankedIcons] = useState<string[]>([]);
+  const handleDrop = (
+    sourceIndex: number,
+    targetIndex: number,
+    source: "icons" | "rankedIcons",
+    target: "icons" | "rankedIcons"
+  ) => {
+    if (source === target && sourceIndex === targetIndex) return;
 
-  const handleDragStart = (event: React.DragEvent, letter: string) => {
-    event.dataTransfer.setData("text/plain", letter);
-  };
+    const sourceSlots = source === "icons" ? icons : rankedIcons;
+    const targetSlots = target === "icons" ? icons : rankedIcons;
 
-  const handleDragEnd = (event: React.DragEvent, letter: string) => {
-    // Reset icon states when drag ends (if necessary)
-  };
+    // Prevent dropping into a filled slot
+    if (targetSlots[targetIndex] !== null) return;
 
-  const handleDropInVertical = (event: React.DragEvent) => {
-    const letter = event.dataTransfer.getData("text/plain");
+    // Update the source and target slots
+    const updatedSourceSlots = [...sourceSlots];
+    const updatedTargetSlots = [...targetSlots];
+    const draggedIcon = updatedSourceSlots[sourceIndex];
 
-    setRankedIcons((prev) => [...prev, letter]);
-    setIcons((prev) =>
-      prev.map((icon) =>
-        icon.letter === letter ? { ...icon, isRemoved: true } : icon
-      )
-    );
-  };
+    updatedSourceSlots[sourceIndex] = null;
+    updatedTargetSlots[targetIndex] = draggedIcon;
 
-  const handleDragOver = (event: React.DragEvent) => {
-    event.preventDefault(); // Allow drop
+    // Update state
+    if (source === "icons") setIcons(updatedSourceSlots);
+    else setRankedIcons(updatedSourceSlots);
+
+    if (target === "icons") setIcons(updatedTargetSlots);
+    else setRankedIcons(updatedTargetSlots);
   };
 
   return (
     <div className="app">
-      <TradeIcons
-        icons={icons}
-        setIcons={setIcons} // Pass setIcons to the child component
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-      />
+      <TradeIcons slots={icons} onDrop={(...args) => handleDrop(...args)} />
       <TradeIconRankings
-        rankedIcons={rankedIcons}
-        onDrop={handleDropInVertical}
-        onDragOver={handleDragOver}
+        slots={rankedIcons}
+        onDrop={(...args) => handleDrop(...args)}
       />
     </div>
   );

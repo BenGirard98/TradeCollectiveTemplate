@@ -1,77 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TradeIcons.css";
 
-interface TradeIcon {
-  letter: string;
-  isUnlocked: boolean;
-  isRemoved: boolean;
-  isPlaceholder: boolean;
-}
-
 interface TradeIconsProps {
-  icons: TradeIcon[];
-  setIcons: React.Dispatch<React.SetStateAction<TradeIcon[]>>; // Accept setIcons as a prop
-  onDragStart: (event: React.DragEvent, letter: string) => void;
-  onDragEnd: (event: React.DragEvent, letter: string) => void;
+  slots: (string | null)[]; // Array representing the slots
+  onDrop: (
+    sourceIndex: number,
+    targetIndex: number,
+    source: "icons" | "rankedIcons",
+    target: "icons" | "rankedIcons"
+  ) => void;
 }
 
-const TradeIcons: React.FC<TradeIconsProps> = ({
-  icons,
-  setIcons, // Destructure setIcons from props
-  onDragStart,
-  onDragEnd,
-}) => {
-  const [draggingLetter, setDraggingLetter] = useState<string | null>(null);
-
-  const handleDragStart = (event: React.DragEvent, letter: string) => {
-    setDraggingLetter(letter); // Store the dragged icon's letter
-    onDragStart(event, letter); // Call the passed function
+const TradeIcons: React.FC<TradeIconsProps> = ({ slots, onDrop }) => {
+  const handleDragStart = (event: React.DragEvent, index: number) => {
+    event.dataTransfer.setData("sourceIndex", index.toString());
+    event.dataTransfer.setData("source", "icons");
   };
 
-  const handleDragEnd = (event: React.DragEvent, letter: string) => {
-    setDraggingLetter(null); // Reset the dragging state
-    onDragEnd(event, letter); // Call the passed function
+  const handleDrop = (event: React.DragEvent, targetIndex: number) => {
+    event.preventDefault();
+    const sourceIndex = parseInt(event.dataTransfer.getData("sourceIndex"));
+    const source = event.dataTransfer.getData("source") as
+      | "icons"
+      | "rankedIcons";
+
+    onDrop(sourceIndex, targetIndex, source, "icons");
   };
 
-  const handleDropInVertical = (event: React.DragEvent, letter: string) => {
-    const droppedLetter = event.dataTransfer.getData("text/plain");
-
-    setIcons((prev) =>
-      prev.map((icon) =>
-        icon.letter === droppedLetter
-          ? { ...icon, isRemoved: true } // Mark the dropped icon as removed
-          : icon
-      )
-    );
+  const handleDragOver = (event: React.DragEvent) => {
+    event.preventDefault(); // Allow dropping
   };
 
   return (
     <div className="trade-icons-container">
-      {icons.map((icon, index) => {
-        // If the icon is a placeholder, show the placeholder div
-        if (icon.isPlaceholder) {
-          return <div key={index} className="trade-icon-placeholder"></div>;
-        }
-
-        return (
-          <div
-            key={index}
-            className={`trade-icon ${
-              icon.isRemoved
-                ? "removed"
-                : icon.isUnlocked
-                ? "unlocked"
-                : "locked"
-            } ${draggingLetter === icon.letter ? "dragging" : ""}`}
-            draggable={icon.isUnlocked && !icon.isRemoved}
-            onDragStart={(e) => handleDragStart(e, icon.letter)}
-            onDragEnd={(e) => handleDragEnd(e, icon.letter)}
-            onDrop={(e) => handleDropInVertical(e, icon.letter)}
-          >
-            {icon.letter}
-          </div>
-        );
-      })}
+      {slots.map((icon, index) => (
+        <div
+          key={index}
+          className={`trade-icon-slot ${icon ? "filled" : "empty"}`}
+          draggable={!!icon} // Only make filled slots draggable
+          onDragStart={(e) => icon && handleDragStart(e, index)}
+          onDrop={(e) => handleDrop(e, index)}
+          onDragOver={handleDragOver}
+        >
+          {icon || <span className="placeholder">Drop here</span>}
+        </div>
+      ))}
     </div>
   );
 };

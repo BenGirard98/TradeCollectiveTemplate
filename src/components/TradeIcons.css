@@ -1,49 +1,57 @@
+/* Common container styles */
+.trade-icons-container,
+.trade-icon-rankings-container {
+  display: flex;
+  gap: 10px;
+}
+
 .trade-icons-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-  background-color: #f7f4f475;
+  flex-wrap: wrap;
+}
+
+.trade-icon-rankings-container {
+  flex-direction: column; /* Make it vertical */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Slot styles */
+.trade-icon-slot,
+.ranking-icon-slot {
+  width: 50px;
+  height: 50px;
   border: 1px solid #ccc;
-  gap: 10px; /* Adds space between icons */
-}
-
-.trade-icon {
-  width: 50px;
-  height: 50px;
+  border-radius: 10px; /* Rounded corners */
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  border-radius: 5px;
+  justify-content: center;
+  background-color: #f9f9f9;
   cursor: grab;
-  user-select: none;
+  transition: background-color 0.2s ease;
 }
 
-.trade-icon-placeholder {
-  width: 50px;
-  height: 50px;
-  background-color: grey;
-  border-radius: 5px;
-  opacity: 0.5;
+.trade-icon-slot.filled,
+.ranking-icon-slot.filled {
+  background-color: #ffa726; /* Orange color for icons */
+  color: white;
 }
 
-.trade-icon.removed {
-  background-color: rgba(255, 255, 255, 0.2);
+.trade-icon-slot.empty,
+.ranking-icon-slot.empty {
+  background-color: #fff;
+  cursor: default;
 }
 
-.trade-icon.locked {
-  background-color: grey;
-  cursor: not-allowed;
+.trade-icon-slot:hover.filled,
+.ranking-icon-slot:hover.filled {
+  background-color: #ff9800; /* Darker orange on hover */
 }
 
-.trade-icon.unlocked {
-  background-color: orange;
+.placeholder {
+  color: #ccc;
+  font-size: 0.8em;
 }
 
-.trade-icon.dragging {
-  opacity: 0.5;
+/* Ensure a clean vertical alignment for TradeIconRankings */
+.trade-icon-rankings-container > .ranking-icon-slot {
+  margin-bottom: 10px;
 }
