@@ -11,10 +11,11 @@ const IntroPage: React.FC = () => {
       <div className="intro-content">
         <h1>Welcome to</h1>
         <img src={tcLogo} alt={"Title"} className="tcLogo" />
+        <p>Explore a variety of trades and find your passion!</p>
         <p>
-          Explore a variety of trades and find your passion! This platform is
-          designed to introduce you to meaningful career paths in the trades and
-          connect you with mentors who can guide you.
+          This platform is designed to introduce you to career paths in the
+          trades which the Trade Collective can help connect you with mentors to
+          guide you.
         </p>
         <p>Hit get started to see the current trades offered and learn more.</p>
         <NavButton to="/main" label="Get Started" />
