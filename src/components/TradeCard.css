@@ -6,7 +6,7 @@
   border-radius: 8px;
   background-color: rgb(75, 66, 58);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 350px; /* Set a fixed height for the card */
+  height: 320px; /* Set a fixed height for the card */
   width: 250px; /* Set a fixed width for all cards */
   overflow: hidden; /* Ensure content doesn't spill outside the card */
 }

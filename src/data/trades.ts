@@ -601,7 +601,7 @@ export const trades: Trade[] = [
     image: HVACImg,
     title: "HVAC",
     cardDescription:
-      "Install and maintain heating, cooling, and ventilation systems.",
+      "Install and maintain heating, ventilation, and cooling systems.",
     modalDescription:
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore HVAC!"),

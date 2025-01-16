@@ -10,7 +10,7 @@
 .content {
   display: grid;
   grid-template-columns: 800px 70px; /* First column (3 parts), second column (1 part) */
-  grid-template-rows: 740px 70px; /* First row for content, second row for icons or placeholder */
+  grid-template-rows: 660px 70px; /* First row for content, second row for icons or placeholder */
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;

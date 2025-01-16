@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 import TradeCard from "../components/TradeCard";
 import TradeInfoModal from "../components/TradeInfoModal";
@@ -94,11 +94,39 @@ const MainPage: React.FC = () => {
   };
   //End of TradeCard and Icon Content
 
+  //css code
+  // Inside your component
+  const [columnWidth, setColumnWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      const maxCards = Math.floor((screenWidth - 66) / 268);
+      setColumnWidth(maxCards * 268 - 16); // Adjust the width
+    };
+
+    // Set initial column width
+    handleResize();
+
+    // Update column width on window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       {activeContent == "TradeCards and Icons" ? (
         <div className="content-container">
-          <div className="content">
+          <div
+            className="content"
+            style={{
+              gridTemplateColumns: `${columnWidth}px 70px`, // Use the dynamic column width
+            }}
+          >
             <div className="trade-cards">
               {trades.map((trade) => (
                 <TradeCard
