@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 import { trades } from "../data/trades";
 import { Trade } from "../types/Trade";
+import TradeIcons from "../components/TradeIcons";
+import TradeIconRankings from "../components/TradeIconRankings";
 
 const MainPage: React.FC = () => {
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
@@ -25,9 +27,51 @@ const MainPage: React.FC = () => {
     navigate(`/tradeInfo/${trade.title}`);
   };
 
+  // Functionality for Trade Icons
+  const initialIcons = ["A", "H", "F", "P", "Au", "Po"];
+  const [icons, setIcons] = useState<(string | null)[]>(initialIcons);
+  const [rankedIcons, setRankedIcons] = useState<(string | null)[]>(
+    Array(initialIcons.length).fill(null)
+  );
+
+  const handleDrop = (
+    sourceIndex: number,
+    targetIndex: number,
+    source: "icons" | "rankedIcons",
+    target: "icons" | "rankedIcons"
+  ) => {
+    if (source === target && sourceIndex === targetIndex) return;
+
+    const sourceSlots = source === "icons" ? icons : rankedIcons;
+    const targetSlots = target === "icons" ? icons : rankedIcons;
+
+    if (targetSlots[targetIndex] !== null) return;
+
+    const updatedSourceSlots = [...sourceSlots];
+    const updatedTargetSlots = [...targetSlots];
+    const draggedIcon = updatedSourceSlots[sourceIndex];
+
+    if (sourceSlots === targetSlots) {
+      updatedSourceSlots[sourceIndex] = null;
+      updatedSourceSlots[targetIndex] = draggedIcon;
+
+      if (source === "icons") setIcons(updatedSourceSlots);
+      else setRankedIcons(updatedSourceSlots);
+    } else {
+      updatedSourceSlots[sourceIndex] = null;
+      updatedTargetSlots[targetIndex] = draggedIcon;
+
+      if (source === "icons") setIcons(updatedSourceSlots);
+      else setRankedIcons(updatedSourceSlots);
+
+      if (target === "icons") setIcons(updatedTargetSlots);
+      else setRankedIcons(updatedTargetSlots);
+    }
+  };
+
   return (
     <div className="content">
-      <div className="trade-list">
+      <div className="trade-cards">
         {trades.map((trade) => (
           <TradeCard
             key={trade.title}
@@ -36,6 +80,20 @@ const MainPage: React.FC = () => {
           />
         ))}
       </div>
+
+      <div className="trade-icons-container">
+        <TradeIcons slots={icons} onDrop={(...args) => handleDrop(...args)} />
+      </div>
+
+      <div className="trade-icon-rankings-container">
+        <TradeIconRankings
+          slots={rankedIcons}
+          onDrop={(...args) => handleDrop(...args)}
+        />
+      </div>
+
+      <div className="placeholder"></div>
+
       {selectedTrade && (
         <TradeInfoModal
           trade={selectedTrade}

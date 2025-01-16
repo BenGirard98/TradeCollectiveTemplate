@@ -1,54 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Grid layout for the main content */
+.content {
+  display: grid;
+  grid-template-columns: 800px 70px; /* First column (3 parts), second column (1 part) */
+  grid-template-rows: 740px 70px; /* First row for content, second row for icons or placeholder */
+  height: 100vh; /* Full viewport height */
+
+  width: 100vw;
+
+  justify-content: center; /* Center horizontally in the viewport */
+  align-items: center; /* Center vertically in the viewport */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.trade-list {
+/* TradeCards fill the top-left row */
+.trade-cards {
+  grid-column: 1 / 2; /* First column */
+  grid-row: 1 / 2; /* First row */
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center;
-  padding: 16px;
+  overflow-y: auto; /* Allow scrolling if cards overflow */
 }
 
-.content {
-  max-width: 1000px;
+/* TradeIcons positioned at the bottom of the first column */
+.trade-icons-container {
+  grid-column: 1 / 2; /* First column */
+  grid-row: 2 / 3; /* Second row */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+}
+
+/* TradeIconRankings in the top-right column */
+.trade-icon-rankings-container {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 1 / 2; /* First row */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow-y: auto; /* Allow scrolling if rankings overflow */
+}
+
+/* Placeholder row for the bottom-right cell */
+.placeholder {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 2 / 3; /* Second row */
+  background-color: transparent; /* Empty placeholder */
 }
