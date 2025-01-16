@@ -31,14 +31,21 @@
 
 .trade-icon-slot.filled,
 .ranking-icon-slot.filled {
-  background-color: #ffa726; /* Orange color for icons */
+  background-color: #e48314; /* Orange color for icons */
   color: white;
 }
 
+/* Updated slot styles */
 .trade-icon-slot.empty,
 .ranking-icon-slot.empty {
-  background-color: #fff;
-  cursor: default;
+  background-color: #e0e0e0; /* Grey background for empty slots */
+  color: #666; /* Text color for empty slots */
+}
+
+/* Make the first three slots dull orange */
+.ranking-icon-slot.empty:nth-of-type(-n + 3) {
+  background-color: #fac385f1; /* Dull orange background */
+  color: #b5651d; /* Slightly darker orange text for contrast */
 }
 
 .trade-icon-slot:hover.filled,
