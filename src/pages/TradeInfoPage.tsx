@@ -11,15 +11,20 @@ export type Section = {
 
 interface TradeInfoPageProps {
   sections: Section[];
+  returnToMain: () => void;
+  completeSection: () => void;
 }
 
-const TradeInfoPage: React.FC<TradeInfoPageProps> = ({ sections }) => {
+const TradeInfoPage: React.FC<TradeInfoPageProps> = ({
+  sections,
+  returnToMain,
+  completeSection,
+}) => {
   const [activeSectionIndex, setActiveSectionIndex] = useState<number>(0);
-  const navigate = useNavigate();
 
   const markNextSectionActive = () => {
     if (activeSectionIndex === sections.length - 1) {
-      navigate("/main"); // Navigate to the trade page when all sections are complete
+      completeSection();
     } else {
       setActiveSectionIndex((prev) => prev + 1);
     }
@@ -32,7 +37,7 @@ const TradeInfoPage: React.FC<TradeInfoPageProps> = ({ sections }) => {
   return (
     <div className="trade-info-content">
       <div className="displayed-content">
-        <div className="close-button" onClick={() => navigate("/main")}>
+        <div className="close-button" onClick={(e) => returnToMain()}>
           X
         </div>
         {sections[activeSectionIndex].content}

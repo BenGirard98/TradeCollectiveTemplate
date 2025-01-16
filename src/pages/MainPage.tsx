@@ -2,12 +2,11 @@ import { useState } from "react";
 import "../App.css";
 import TradeCard from "../components/TradeCard";
 import TradeInfoModal from "../components/TradeInfoModal";
-import { useNavigate } from "react-router-dom";
-
 import { trades } from "../data/trades";
 import { Trade } from "../types/Trade";
 import TradeIcons from "../components/TradeIcons";
 import TradeIconRankings from "../components/TradeIconRankings";
+import TradeInfoPage from "./TradeInfoPage";
 
 export interface Icon {
   name: string;
@@ -15,8 +14,12 @@ export interface Icon {
 }
 
 const MainPage: React.FC = () => {
+  const [activeContent, setActiveContent] = useState<string>(
+    "TradeCards and Icons"
+  );
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
 
+  //Trade Card and Icon Content
   const handleCardClick = (trade: Trade) => {
     setSelectedTrade(trade);
   };
@@ -25,11 +28,8 @@ const MainPage: React.FC = () => {
     setSelectedTrade(null);
   };
 
-  const navigate = useNavigate();
-
   const handleLaunchInfo = (trade: Trade) => {
-    console.log("Launching info for:", trade.title);
-    navigate(`/tradeInfo/${trade.title}`);
+    setActiveContent("TradeInfo");
   };
 
   // Functionality for Trade Icons
@@ -46,6 +46,18 @@ const MainPage: React.FC = () => {
   const [rankedIcons, setRankedIcons] = useState<(Icon | null)[]>(
     Array(initialIcons.length).fill(null)
   );
+  const unlockIcon = (iconName: string) => {
+    const updatedIcons = icons.map((icon) =>
+      icon && icon.name === iconName ? { ...icon, locked: false } : icon
+    );
+    setIcons(updatedIcons);
+  };
+
+  const completeSection = () => {
+    setActiveContent("TradeCards and Icons");
+    if (selectedTrade != null) unlockIcon(selectedTrade.iconName);
+    setSelectedTrade(null);
+  };
 
   const handleDrop = (
     sourceIndex: number,
@@ -62,55 +74,80 @@ const MainPage: React.FC = () => {
     if (!draggedIcon || draggedIcon.locked || targetSlots[targetIndex] !== null)
       return;
 
-    const updatedSourceSlots = [...sourceSlots];
-    const updatedTargetSlots = [...targetSlots];
+    if (sourceSlots == targetSlots) {
+      const updatedSourceSlots = [...sourceSlots];
+      updatedSourceSlots[sourceIndex] = null;
+      updatedSourceSlots[targetIndex] = draggedIcon;
 
-    updatedSourceSlots[sourceIndex] = null;
-    updatedTargetSlots[targetIndex] = draggedIcon;
+      if (target === "icons") setIcons(updatedSourceSlots);
+      else setRankedIcons(updatedSourceSlots);
+    } else {
+      const updatedSourceSlots = [...sourceSlots];
+      const updatedTargetSlots = [...targetSlots];
 
-    // Update state based on source/target
-    if (source === "icons") setIcons(updatedSourceSlots);
-    else setRankedIcons(updatedSourceSlots);
+      updatedSourceSlots[sourceIndex] = null;
+      updatedTargetSlots[targetIndex] = draggedIcon;
 
-    if (target === "icons") setIcons(updatedTargetSlots);
-    else setRankedIcons(updatedTargetSlots);
+      // Update state based on source/target
+      if (source === "icons") setIcons(updatedSourceSlots);
+      else setRankedIcons(updatedSourceSlots);
+
+      if (target === "icons") setIcons(updatedTargetSlots);
+      else setRankedIcons(updatedTargetSlots);
+    }
   };
+  //End of TradeCard and Icon Content
 
   return (
-    <div className="content-container">
-      <div className="content">
-        <div className="trade-cards">
-          {trades.map((trade) => (
-            <TradeCard
-              key={trade.title}
-              {...trade}
-              onClick={() => handleCardClick(trade)}
-            />
-          ))}
+    <>
+      {activeContent == "TradeCards and Icons" ? (
+        <div className="content-container">
+          <div className="content">
+            <div className="trade-cards">
+              {trades.map((trade) => (
+                <TradeCard
+                  key={trade.title}
+                  {...trade}
+                  onClick={() => handleCardClick(trade)}
+                />
+              ))}
+            </div>
+
+            <div className="trade-icons-container">
+              <TradeIcons
+                slots={icons}
+                onDrop={(...args) => handleDrop(...args)}
+              />
+            </div>
+
+            <div className="trade-icon-rankings-container">
+              <TradeIconRankings
+                slots={rankedIcons}
+                onDrop={(...args) => handleDrop(...args)}
+              />
+            </div>
+
+            <div className="placeholder"></div>
+
+            {selectedTrade && (
+              <TradeInfoModal
+                trade={selectedTrade}
+                onClose={closeModal}
+                onLaunchInfo={handleLaunchInfo}
+              />
+            )}
+          </div>
         </div>
-
-        <div className="trade-icons-container">
-          <TradeIcons slots={icons} onDrop={(...args) => handleDrop(...args)} />
-        </div>
-
-        <div className="trade-icon-rankings-container">
-          <TradeIconRankings
-            slots={rankedIcons}
-            onDrop={(...args) => handleDrop(...args)}
-          />
-        </div>
-
-        <div className="placeholder"></div>
-
-        {selectedTrade && (
-          <TradeInfoModal
-            trade={selectedTrade}
-            onClose={closeModal}
-            onLaunchInfo={handleLaunchInfo}
-          />
-        )}
-      </div>
-    </div>
+      ) : (
+        <TradeInfoPage
+          sections={selectedTrade?.sections ?? []}
+          returnToMain={() => {
+            setActiveContent("TradeCards and Icons");
+          }}
+          completeSection={completeSection}
+        ></TradeInfoPage>
+      )}
+    </>
   );
 };
 

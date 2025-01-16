@@ -9,6 +9,7 @@ import policeImg from "../assets/images/Police.jpg";
 import automotiveImg from "../assets/images/Automotive.jpg";
 
 import { Trade } from "../types/Trade";
+import { hvacSections } from "../InfoPageSections/hvacSections";
 
 const policeTradeData = {
   title: "Public Safety (Law Enforcement)",
@@ -593,6 +594,8 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Aviation!"),
     data: aviationTradeData,
+    sections: hvacSections,
+    iconName: "A",
   },
   {
     image: HVACImg,
@@ -603,6 +606,8 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore HVAC!"),
     data: hvacTradeData,
+    sections: hvacSections,
+    iconName: "H",
   },
   {
     image: firefightingImg,
@@ -613,6 +618,8 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Fire Fighting!"),
     data: fireTradeData,
+    sections: hvacSections,
+    iconName: "F",
   },
   {
     image: plumbingImg,
@@ -623,6 +630,8 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Plumbing!"),
     data: plumbingTradeData,
+    sections: hvacSections,
+    iconName: "P",
   },
   {
     image: automotiveImg,
@@ -633,6 +642,8 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Automotive!"),
     data: automotiveTradeData,
+    sections: hvacSections,
+    iconName: "Au",
   },
   {
     image: policeImg,
@@ -643,5 +654,7 @@ export const trades: Trade[] = [
       "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Police!"),
     data: policeTradeData,
+    sections: hvacSections,
+    iconName: "Po",
   },
 ];
