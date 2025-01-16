@@ -1,8 +1,9 @@
 import React from "react";
 import "./TradeIcons.css";
+import { Icon } from "../pages/MainPage";
 
 interface TradeIconsProps {
-  slots: (string | null)[]; // Array representing the slots
+  slots: (Icon | null)[]; // Array representing the slots
   onDrop: (
     sourceIndex: number,
     targetIndex: number,
@@ -36,13 +37,21 @@ const TradeIcons: React.FC<TradeIconsProps> = ({ slots, onDrop }) => {
       {slots.map((icon, index) => (
         <div
           key={index}
-          className={`trade-icon-slot ${icon ? "filled" : "empty"}`}
-          draggable={!!icon} // Only make filled slots draggable
-          onDragStart={(e) => icon && handleDragStart(e, index)}
+          className={`trade-icon-slot ${icon ? "filled" : "empty"} ${
+            icon?.locked ? "locked" : ""
+          }`}
+          draggable={!!icon && !icon.locked} // Prevent dragging if locked
+          onDragStart={(e) => icon && !icon.locked && handleDragStart(e, index)}
           onDrop={(e) => handleDrop(e, index)}
           onDragOver={handleDragOver}
         >
-          {icon || <span className="placeholder">Drop here</span>}
+          {icon ? (
+            <span className={`icon-content ${icon.locked ? "locked" : ""}`}>
+              {icon.name}
+            </span>
+          ) : (
+            <span className="placeholder"></span>
+          )}
         </div>
       ))}
     </div>

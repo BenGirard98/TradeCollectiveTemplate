@@ -1,8 +1,9 @@
 import React from "react";
 import "./TradeIcons.css";
+import { Icon } from "../pages/MainPage";
 
 interface TradeIconRankingsProps {
-  slots: (string | null)[]; // Array representing the slots
+  slots: (Icon | null)[]; // Array representing the slots
   onDrop: (
     sourceIndex: number,
     targetIndex: number,
@@ -40,14 +41,20 @@ const TradeIconRankings: React.FC<TradeIconRankingsProps> = ({
         <div
           key={index}
           className={`ranking-icon-slot ${icon ? "filled" : "empty"} ${
-            !icon && index === 0 ? "first-empty" : ""
+            icon?.locked ? "locked" : ""
           }`}
-          draggable={!!icon} // Only make filled slots draggable
-          onDragStart={(e) => icon && handleDragStart(e, index)}
+          draggable={!!icon && !icon.locked} // Prevent dragging if locked
+          onDragStart={(e) => icon && !icon.locked && handleDragStart(e, index)}
           onDrop={(e) => handleDrop(e, index)}
           onDragOver={handleDragOver}
         >
-          {icon || <span>{index + 1}</span>} {/* Show number for empty slots */}
+          {icon ? (
+            <span className={`icon-content ${icon.locked ? "locked" : ""}`}>
+              {icon.name}
+            </span>
+          ) : (
+            <span>{index + 1}</span> // Show number for empty slots
+          )}
         </div>
       ))}
     </div>

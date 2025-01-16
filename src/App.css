@@ -1,14 +1,22 @@
 /* Grid layout for the main content */
+.content-container {
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
 .content {
   display: grid;
   grid-template-columns: 800px 70px; /* First column (3 parts), second column (1 part) */
   grid-template-rows: 740px 70px; /* First row for content, second row for icons or placeholder */
-  height: 100vh; /* Full viewport height */
-
-  width: 100vw;
-
-  justify-content: center; /* Center horizontally in the viewport */
-  align-items: center; /* Center vertically in the viewport */
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 2px;
+  box-sizing: border-box; /* Include padding in size calculations */
+  background-color: rgb(95, 93, 93);
 }
 
 /* TradeCards fill the top-left row */

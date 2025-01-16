@@ -9,6 +9,11 @@ import { Trade } from "../types/Trade";
 import TradeIcons from "../components/TradeIcons";
 import TradeIconRankings from "../components/TradeIconRankings";
 
+export interface Icon {
+  name: string;
+  locked: boolean; // Locked state for the icon
+}
+
 const MainPage: React.FC = () => {
   const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
 
@@ -28,9 +33,17 @@ const MainPage: React.FC = () => {
   };
 
   // Functionality for Trade Icons
-  const initialIcons = ["A", "H", "F", "P", "Au", "Po"];
-  const [icons, setIcons] = useState<(string | null)[]>(initialIcons);
-  const [rankedIcons, setRankedIcons] = useState<(string | null)[]>(
+  const initialIcons: Icon[] = [
+    { name: "A", locked: true },
+    { name: "H", locked: true },
+    { name: "F", locked: true },
+    { name: "P", locked: true },
+    { name: "Au", locked: true },
+    { name: "Po", locked: true },
+  ];
+
+  const [icons, setIcons] = useState<(Icon | null)[]>(initialIcons);
+  const [rankedIcons, setRankedIcons] = useState<(Icon | null)[]>(
     Array(initialIcons.length).fill(null)
   );
 
@@ -40,67 +53,63 @@ const MainPage: React.FC = () => {
     source: "icons" | "rankedIcons",
     target: "icons" | "rankedIcons"
   ) => {
-    if (source === target && sourceIndex === targetIndex) return;
-
     const sourceSlots = source === "icons" ? icons : rankedIcons;
     const targetSlots = target === "icons" ? icons : rankedIcons;
 
-    if (targetSlots[targetIndex] !== null) return;
+    const draggedIcon = sourceSlots[sourceIndex];
+
+    // Prevent actions for locked icons or if target is occupied
+    if (!draggedIcon || draggedIcon.locked || targetSlots[targetIndex] !== null)
+      return;
 
     const updatedSourceSlots = [...sourceSlots];
     const updatedTargetSlots = [...targetSlots];
-    const draggedIcon = updatedSourceSlots[sourceIndex];
 
-    if (sourceSlots === targetSlots) {
-      updatedSourceSlots[sourceIndex] = null;
-      updatedSourceSlots[targetIndex] = draggedIcon;
+    updatedSourceSlots[sourceIndex] = null;
+    updatedTargetSlots[targetIndex] = draggedIcon;
 
-      if (source === "icons") setIcons(updatedSourceSlots);
-      else setRankedIcons(updatedSourceSlots);
-    } else {
-      updatedSourceSlots[sourceIndex] = null;
-      updatedTargetSlots[targetIndex] = draggedIcon;
+    // Update state based on source/target
+    if (source === "icons") setIcons(updatedSourceSlots);
+    else setRankedIcons(updatedSourceSlots);
 
-      if (source === "icons") setIcons(updatedSourceSlots);
-      else setRankedIcons(updatedSourceSlots);
-
-      if (target === "icons") setIcons(updatedTargetSlots);
-      else setRankedIcons(updatedTargetSlots);
-    }
+    if (target === "icons") setIcons(updatedTargetSlots);
+    else setRankedIcons(updatedTargetSlots);
   };
 
   return (
-    <div className="content">
-      <div className="trade-cards">
-        {trades.map((trade) => (
-          <TradeCard
-            key={trade.title}
-            {...trade}
-            onClick={() => handleCardClick(trade)}
+    <div className="content-container">
+      <div className="content">
+        <div className="trade-cards">
+          {trades.map((trade) => (
+            <TradeCard
+              key={trade.title}
+              {...trade}
+              onClick={() => handleCardClick(trade)}
+            />
+          ))}
+        </div>
+
+        <div className="trade-icons-container">
+          <TradeIcons slots={icons} onDrop={(...args) => handleDrop(...args)} />
+        </div>
+
+        <div className="trade-icon-rankings-container">
+          <TradeIconRankings
+            slots={rankedIcons}
+            onDrop={(...args) => handleDrop(...args)}
           />
-        ))}
+        </div>
+
+        <div className="placeholder"></div>
+
+        {selectedTrade && (
+          <TradeInfoModal
+            trade={selectedTrade}
+            onClose={closeModal}
+            onLaunchInfo={handleLaunchInfo}
+          />
+        )}
       </div>
-
-      <div className="trade-icons-container">
-        <TradeIcons slots={icons} onDrop={(...args) => handleDrop(...args)} />
-      </div>
-
-      <div className="trade-icon-rankings-container">
-        <TradeIconRankings
-          slots={rankedIcons}
-          onDrop={(...args) => handleDrop(...args)}
-        />
-      </div>
-
-      <div className="placeholder"></div>
-
-      {selectedTrade && (
-        <TradeInfoModal
-          trade={selectedTrade}
-          onClose={closeModal}
-          onLaunchInfo={handleLaunchInfo}
-        />
-      )}
     </div>
   );
 };

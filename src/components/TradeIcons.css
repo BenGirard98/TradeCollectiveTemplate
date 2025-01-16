@@ -26,31 +26,40 @@
   justify-content: center;
   background-color: #f9f9f9;
   cursor: grab;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .trade-icon-slot.filled,
 .ranking-icon-slot.filled {
-  background-color: #e48314; /* Orange color for icons */
+  background-color: #e48314; /* Orange color for unlocked icons */
   color: white;
 }
 
-/* Updated slot styles */
 .trade-icon-slot.empty,
 .ranking-icon-slot.empty {
   background-color: #e0e0e0; /* Grey background for empty slots */
   color: #666; /* Text color for empty slots */
 }
 
+/* Locked slot styles */
+.trade-icon-slot.filled.locked,
+.ranking-icon-slot.filled.locked {
+  background-color: #d3d3d3; /* Dull grey background for locked icons */
+  color: #8c8c8c; /* Slightly darker grey text */
+  cursor: not-allowed; /* Indicate that it's locked */
+  opacity: 0.8; /* Slightly transparent to differentiate */
+}
+
+/* Hover effect for unlocked filled slots */
+.trade-icon-slot:hover.filled:not(.locked),
+.ranking-icon-slot:hover.filled:not(.locked) {
+  background-color: #ff9800; /* Darker orange on hover */
+}
+
 /* Make the first three slots dull orange */
 .ranking-icon-slot.empty:nth-of-type(-n + 3) {
   background-color: #fac385f1; /* Dull orange background */
   color: #b5651d; /* Slightly darker orange text for contrast */
-}
-
-.trade-icon-slot:hover.filled,
-.ranking-icon-slot:hover.filled {
-  background-color: #ff9800; /* Darker orange on hover */
 }
 
 .placeholder {
