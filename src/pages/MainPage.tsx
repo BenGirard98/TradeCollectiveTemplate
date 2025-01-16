@@ -33,14 +33,10 @@ const MainPage: React.FC = () => {
   };
 
   // Functionality for Trade Icons
-  const initialIcons: Icon[] = [
-    { name: "A", locked: true },
-    { name: "H", locked: true },
-    { name: "F", locked: true },
-    { name: "P", locked: true },
-    { name: "Au", locked: true },
-    { name: "Po", locked: true },
-  ];
+  const initialIcons: Icon[] = trades.map((trade) => ({
+    name: trade.iconName,
+    locked: true,
+  }));
 
   const [icons, setIcons] = useState<(Icon | null)[]>(initialIcons);
   const [rankedIcons, setRankedIcons] = useState<(Icon | null)[]>(
