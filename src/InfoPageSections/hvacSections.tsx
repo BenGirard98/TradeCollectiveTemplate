@@ -6,6 +6,7 @@ import HVACCarrerPathways from "../assets/images/HVACCareerPathways.jpg";
 import DITLImg from "../assets/images/Construction.jpg";
 import InfoSectionTextDisplay from "../components/InfoSectionTextDisplay";
 import InfoSectionImage from "../components/InfoSectionImage";
+import InfoSectionForm from "../components/InfoSectionForm";
 
 export const hvacSections: Section[] = [
   {
@@ -49,10 +50,10 @@ export const hvacSections: Section[] = [
   {
     name: "Local Employers",
     content: (
-      <div>
-        <h2>Employers in Your Area</h2>
-        <p>Get to know some local employers hiring in the HVAC industry.</p>
-      </div>
+      <InfoSectionForm
+        title="Employers in Your Area"
+        content="Here's a sample form slide where we can ask any questions we'd like. It could include just this single text entry field, multiple fields, or even something entirely different."
+      ></InfoSectionForm>
     ),
   },
   {

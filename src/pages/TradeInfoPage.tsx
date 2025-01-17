@@ -1,6 +1,5 @@
 import "../App.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar.tsx";
 import "./TradeInfoPage.css";
 
@@ -38,7 +37,7 @@ const TradeInfoPage: React.FC<TradeInfoPageProps> = ({
     <div className="trade-info-page">
       <div className="trade-info-content">
         <div className="displayed-content">
-          <div className="close-button" onClick={(e) => returnToMain()}>
+          <div className="close-button" onClick={() => returnToMain()}>
             X
           </div>
           {sections[activeSectionIndex].content}

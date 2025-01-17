@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./IntroPage.css";
 import NavButton from "../components/NavButton";
 import tcLogo from "../assets/pngs/TC_POS_COLOR_01.png";
-import TradeIcons from "../components/TradeIcons";
-import TradeIconRankings from "../components/TradeIconRankings";
 
 const IntroPage: React.FC = () => {
   return (

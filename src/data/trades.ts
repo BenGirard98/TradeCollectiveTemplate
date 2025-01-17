@@ -10,6 +10,7 @@ import { Trade } from "../types/Trade";
 import { hvacSections } from "../InfoPageSections/hvacSections";
 import { automotiveSections } from "../InfoPageSections/automotiveSections";
 import { electricianSections } from "../InfoPageSections/electricianSections";
+import { placeholderSections } from "../InfoPageSections/placeholderSections";
 
 const policeTradeData = {
   title: "Public Safety (Law Enforcement)",
@@ -592,7 +593,7 @@ export const trades: Trade[] = [
       "Operate aircraft and ensure safe, efficient air travel operations.",
     onClick: () => alert("Explore Aviation!"),
     data: aviationTradeData,
-    sections: hvacSections,
+    sections: placeholderSections,
     iconName: "A",
   },
   {
@@ -612,7 +613,7 @@ export const trades: Trade[] = [
       "Respond to emergencies, extinguish fires, and protect lives and property.",
     onClick: () => alert("Explore Fire Fighting!"),
     data: fireTradeData,
-    sections: hvacSections,
+    sections: placeholderSections,
     iconName: "F",
   },
   {
@@ -622,7 +623,7 @@ export const trades: Trade[] = [
       "Install, repair, and maintain piping systems for water and gas",
     onClick: () => alert("Explore Plumbing!"),
     data: plumbingTradeData,
-    sections: hvacSections,
+    sections: placeholderSections,
     iconName: "P",
   },
   {
@@ -642,7 +643,7 @@ export const trades: Trade[] = [
       "Protect and serve communities by enforcing laws and ensuring safety.",
     onClick: () => alert("Explore Police!"),
     data: policeTradeData,
-    sections: hvacSections,
+    sections: placeholderSections,
     iconName: "Po",
   },
   {
