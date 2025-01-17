@@ -102,7 +102,7 @@ const MainPage: React.FC = () => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       const maxCards = Math.floor((screenWidth - 66) / 268);
-      setColumnWidth(maxCards * 268 - 16); // Adjust the width
+      setColumnWidth(maxCards * 268 + 10); // Adjust the width
     };
 
     // Set initial column width

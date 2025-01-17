@@ -11,7 +11,7 @@ interface ImageProps {
 const InfoSectionImage: React.FC<ImageProps> = (title, imgSrc) => {
   return (
     <div className="info-section-container">
-      {title ? <h2>Just a Normal String</h2> : <></>}
+      {title ? <h2></h2> : <></>}
       <img className="image" src={HVACImg} alt="An example image" />
     </div>
   );

@@ -1,15 +1,15 @@
 import aviationImg from "../assets/images/Aviation.jpg";
-import constructionImg from "../assets/images/Construction.jpg";
 import firefightingImg from "../assets/images/Firefighting.jpg";
 import plumbingImg from "../assets/images/Plumbing.jpg";
-import solarImg from "../assets/images/Solar.jpg";
-import weldingImg from "../assets/images/Welding.jpg";
 import HVACImg from "../assets/images/HVAC.jpg";
 import policeImg from "../assets/images/Police.jpg";
 import automotiveImg from "../assets/images/Automotive.jpg";
+import electricianImg from "../assets/images/Electrician.jpg";
 
 import { Trade } from "../types/Trade";
 import { hvacSections } from "../InfoPageSections/hvacSections";
+import { automotiveSections } from "../InfoPageSections/automotiveSections";
+import { electricianSections } from "../InfoPageSections/electricianSections";
 
 const policeTradeData = {
   title: "Public Safety (Law Enforcement)",
@@ -590,8 +590,6 @@ export const trades: Trade[] = [
     title: "Aviation",
     cardDescription:
       "Operate aircraft and ensure safe, efficient air travel operations.",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Aviation!"),
     data: aviationTradeData,
     sections: hvacSections,
@@ -602,8 +600,6 @@ export const trades: Trade[] = [
     title: "HVAC",
     cardDescription:
       "Install and maintain heating, ventilation, and cooling systems.",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore HVAC!"),
     data: hvacTradeData,
     sections: hvacSections,
@@ -614,8 +610,6 @@ export const trades: Trade[] = [
     title: "Fire Fighter",
     cardDescription:
       "Respond to emergencies, extinguish fires, and protect lives and property.",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Fire Fighting!"),
     data: fireTradeData,
     sections: hvacSections,
@@ -626,8 +620,6 @@ export const trades: Trade[] = [
     title: "Plumbing",
     cardDescription:
       "Install, repair, and maintain piping systems for water and gas",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Plumbing!"),
     data: plumbingTradeData,
     sections: hvacSections,
@@ -638,11 +630,9 @@ export const trades: Trade[] = [
     title: "Automotive",
     cardDescription:
       "Diagnose, repair, and maintain vehicles for optimal performance.",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Automotive!"),
     data: automotiveTradeData,
-    sections: hvacSections,
+    sections: automotiveSections,
     iconName: "Au",
   },
   {
@@ -650,11 +640,19 @@ export const trades: Trade[] = [
     title: "Police",
     cardDescription:
       "Protect and serve communities by enforcing laws and ensuring safety.",
-    modalDescription:
-      "Sample text that talks more in depth about the trade, in the future this could be a sequence of text, graphics, and informative videos about the trade. I was thinking about having a section for each of the major pieces of info that we collect on a trade like. i.e. a section for expected starting pay, one for major employers and demand, one for expected work/qualifications to get the position, etc...",
     onClick: () => alert("Explore Police!"),
     data: policeTradeData,
     sections: hvacSections,
     iconName: "Po",
+  },
+  {
+    image: electricianImg, // Replace this with the appropriate imported image or URL
+    title: "Electrician",
+    cardDescription:
+      "Install, maintain, and repair electrical systems for various settings.",
+    onClick: () => alert("Explore Electrician!"),
+    data: aviationTradeData, // Replace with actual data if available
+    sections: electricianSections, // Replace with sections specific to Electrician trade if defined
+    iconName: "E",
   },
 ];

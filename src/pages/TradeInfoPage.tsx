@@ -35,20 +35,22 @@ const TradeInfoPage: React.FC<TradeInfoPageProps> = ({
   const highlightedSections = sections.slice(0, activeSectionIndex + 1);
 
   return (
-    <div className="trade-info-content">
-      <div className="displayed-content">
-        <div className="close-button" onClick={(e) => returnToMain()}>
-          X
+    <div className="trade-info-page">
+      <div className="trade-info-content">
+        <div className="displayed-content">
+          <div className="close-button" onClick={(e) => returnToMain()}>
+            X
+          </div>
+          {sections[activeSectionIndex].content}
         </div>
-        {sections[activeSectionIndex].content}
+        <ProgressBar
+          sections={sections}
+          completedSections={highlightedSections}
+        />
+        <button className="next-section-button" onClick={markNextSectionActive}>
+          {allSectionsComplete ? "Return to Trade Page" : "Next Section"}
+        </button>
       </div>
-      <ProgressBar
-        sections={sections}
-        completedSections={highlightedSections}
-      />
-      <button onClick={markNextSectionActive}>
-        {allSectionsComplete ? "Return to Trade Page" : "Next Section"}
-      </button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import VideoPlayer from "../components/VideoPlayer";
 import { Section } from "../pages/TradeInfoPage";
-import HVACVideo1 from "../assets/videos/WhatIsHVAC.mp4";
+import HVACVideo1 from "../assets/videos/HVACIntro.mp4";
 import HVACImg from "../assets/images/HVAC.jpg";
 import HVACCarrerPathways from "../assets/images/HVACCareerPathways.jpg";
 import DITLImg from "../assets/images/Construction.jpg";
