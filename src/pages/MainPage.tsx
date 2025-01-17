@@ -7,6 +7,7 @@ import { Trade } from "../types/Trade";
 import TradeIcons from "../components/TradeIcons";
 import TradeIconRankings from "../components/TradeIconRankings";
 import TradeInfoPage from "./TradeInfoPage";
+import logoPng from "../assets/pngs/TC_POS_COLOR_01.png";
 
 export interface Icon {
   name: string;
@@ -96,6 +97,7 @@ const MainPage: React.FC = () => {
 
   //css code
   // Inside your component
+  const [forceColumnWidth, setForceColumnWidth] = useState(false);
   const [columnWidth, setColumnWidth] = useState(0);
 
   useEffect(() => {
@@ -106,7 +108,9 @@ const MainPage: React.FC = () => {
     };
 
     // Set initial column width
-    handleResize();
+    if (!forceColumnWidth) {
+      handleResize();
+    }
 
     // Update column width on window resize
     window.addEventListener("resize", handleResize);
@@ -151,7 +155,14 @@ const MainPage: React.FC = () => {
               />
             </div>
 
-            <div className="placeholder"></div>
+            <img
+              className="placeholder"
+              src={logoPng}
+              onClick={() => {
+                setColumnWidth(810);
+              }}
+              alt="Placeholder"
+            />
 
             {selectedTrade && (
               <TradeInfoModal

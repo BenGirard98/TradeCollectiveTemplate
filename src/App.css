@@ -52,5 +52,6 @@
 .placeholder {
   grid-column: 2 / 3; /* Second column */
   grid-row: 2 / 3; /* Second row */
-  background-color: transparent; /* Empty placeholder */
+  height: 90%;
+  width: 90%;
 }

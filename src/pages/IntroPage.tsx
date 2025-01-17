@@ -9,9 +9,8 @@ const IntroPage: React.FC = () => {
   return (
     <div className="intro-page">
       <div className="intro-content">
-        <h1>Welcome to</h1>
+        <h1>Welcome to the</h1>
         <img src={tcLogo} alt={"Title"} className="tcLogo" />
-        <p>Explore a variety of trades and find your passion!</p>
         <p>
           This platform is designed to introduce you to career paths in the
           trades which the Trade Collective can help connect you with mentors to
