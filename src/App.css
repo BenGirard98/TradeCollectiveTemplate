@@ -1,57 +1,62 @@
-/* Grid layout for the main content */
+@import "./globals.css";
+
 .content-container {
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 800px 70px; /* First column (3 parts), second column (1 part) */
-  grid-template-rows: 660px 70px; /* First row for content, second row for icons or placeholder */
+  grid-template-columns: 820px 70px;
+  grid-template-rows: 675px 70px;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 2px;
-  box-sizing: border-box; /* Include padding in size calculations */
-  background-color: rgb(95, 93, 93);
+  box-sizing: border-box;
+  background-color: var(--background-color);
 }
 
 /* TradeCards fill the top-left row */
 .trade-cards {
-  grid-column: 1 / 2; /* First column */
-  grid-row: 1 / 2; /* First row */
+  padding: 10px;
+  padding-bottom: 6px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  overflow-y: auto; /* Allow scrolling if cards overflow */
+  overflow-y: auto;
+  background-color: inherit;
+  border-radius: 10px;
 }
 
 /* TradeIcons positioned at the bottom of the first column */
-.trade-icons-container {
-  grid-column: 1 / 2; /* First column */
-  grid-row: 2 / 3; /* Second row */
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically if needed */
+.trade-icons {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* TradeIconRankings in the top-right column */
-.trade-icon-rankings-container {
-  grid-column: 2 / 3; /* Second column */
-  grid-row: 1 / 2; /* First row */
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  overflow-y: auto; /* Allow scrolling if rankings overflow */
+.trade-icon-rankings {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
 }
 
 /* Placeholder row for the bottom-right cell */
 .placeholder {
-  grid-column: 2 / 3; /* Second column */
-  grid-row: 2 / 3; /* Second row */
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
   height: 90%;
   width: 90%;
 }

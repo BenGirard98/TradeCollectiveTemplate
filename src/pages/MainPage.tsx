@@ -104,7 +104,8 @@ const MainPage: React.FC = () => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       const maxCards = Math.floor((screenWidth - 66) / 268);
-      setColumnWidth(maxCards * 268 + 10); // Adjust the width
+      const scrollBarWidth = trades.length > maxCards * 2 ? 22 : 0;
+      setColumnWidth(maxCards * 268 + scrollBarWidth); // Adjust the width
     };
 
     // Set initial column width
@@ -141,14 +142,14 @@ const MainPage: React.FC = () => {
               ))}
             </div>
 
-            <div className="trade-icons-container">
+            <div className="trade-icons">
               <TradeIcons
                 slots={icons}
                 onDrop={(...args) => handleDrop(...args)}
               />
             </div>
 
-            <div className="trade-icon-rankings-container">
+            <div className="trade-icon-rankings">
               <TradeIconRankings
                 slots={rankedIcons}
                 onDrop={(...args) => handleDrop(...args)}
@@ -159,7 +160,7 @@ const MainPage: React.FC = () => {
               className="placeholder"
               src={logoPng}
               onClick={() => {
-                setColumnWidth(810);
+                setColumnWidth(820);
               }}
               alt="Placeholder"
             />

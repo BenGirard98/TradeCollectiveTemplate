@@ -1,18 +1,21 @@
+@import "../globals.css";
+
 .trade-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #dddddd9f;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background-color: rgb(75, 66, 58);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 320px; /* Set a fixed height for the card */
-  width: 250px; /* Set a fixed width for all cards */
-  overflow: hidden; /* Ensure content doesn't spill outside the card */
+  background-color: var(--primary-color);
+  height: 320px;
+  width: 250px;
+  overflow: hidden;
+  transition: transform 0.1s ease-in;
 }
 
 .trade-card:hover {
-  border: 1px solid white;
+  transform: scale(1.03);
 }
 
 .trade-card-image {
@@ -26,6 +29,7 @@
   flex-direction: column;
   flex-grow: 1;
   padding: 16px;
+  color: var(--text-color);
 }
 
 .trade-card-title {
@@ -40,7 +44,7 @@
 
 .trade-card-button {
   margin-top: auto;
-  background-color: #ce4218;
+  background-color: var(--accent-color);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -49,5 +53,5 @@
 }
 
 .trade-card-button:hover {
-  background-color: #973112;
+  filter: brightness(0.9);
 }
